@@ -44,13 +44,6 @@ middleData = data;
 nukeAndCreateTable($('#highTable'), data, highColdef);
 });
 
-/*$('#brs').on( 'click', function() {
-	nukeAndCreateTable(
-		$('#elemTable'),
-		_.reject(elemData, function(row){ return row.m5 == null}),
-		 elemCol);
-  });
-*/
 function scoreRender(data, type) {
 	if(type === 'display')
 	{
@@ -68,7 +61,7 @@ function nukeAndCreateTable(table, data, coldef) {
 		dom: 'ftp',
 		pageLength:20,
 		oLanguage: {  sSearch: "Type school name to search: "},
-		data: data, //_.reject(data, function(row){ return row.m5 == null} ),
+		data: data,
 	    columns: coldef,
 	    destroy:true
 	 });

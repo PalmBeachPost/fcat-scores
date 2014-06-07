@@ -54,7 +54,10 @@ table.datatable>th.color{
 	margin-bottom: 10px;
 }
 
-label{
+.explainer, label{
 	color: #404040;
 	font-size: 75%;
+}
+.spacer {
+	min-height: 10px;
 }
