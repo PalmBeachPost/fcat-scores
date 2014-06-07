@@ -67,7 +67,7 @@ function nukeAndCreateTable(table, data, coldef) {
 		info: false,
 		dom: 'ftp',
 		pageLength:20,
-		lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]],
+		oLanguage: {  sSearch: "Type school name to search: "},
 		data: data, //_.reject(data, function(row){ return row.m5 == null} ),
 	    columns: coldef,
 	    destroy:true

@@ -20,8 +20,41 @@ h2{
 	font-size: 150%;
 	clear: both;
 	color: whitesmoke;
-	float: left;
+	display: inline;
 	padding: 5px 10px;
 	margin: 10px 0;
 	font-weight: normal;
+}
+
+h3 {	
+font-style: italic;
+font-weight: normal;
+}
+
+table td {
+	text-align: center;
+}
+
+table td:nth-of-type(1){
+	text-align: left;
+}
+
+.grouphead th:nth-child(even){
+	background-color: #f9f9f9;
+	border-left-width: 1px;
+}
+
+table.datatable>th.color{
+	background-color: #f9f9f9;
+	border-left-width: 1px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+	float:left;
+	margin-bottom: 10px;
+}
+
+label{
+	color: #404040;
+	font-size: 75%;
 }
