@@ -15,11 +15,11 @@ $(document).ready( function () {
 
 $.getJSON("./js/data/elementary.json", function(data) {
 jsondata = data;
-createTable($('#elemTable'), data, coldef1);
+nukeAndCreateTable($('#elemTable'), data, coldef1);
 });
 
 $('#brs').on( 'click', function() {
-	createTable(
+	nukeAndCreateTable(
 		$('#elemTable'),
 		_.reject(jsondata, function(row){ return row.m5 == null}),
 		 coldef1);
@@ -34,7 +34,7 @@ function scoreRender(data, type) {
  	return data;
 }
 
-function createTable(table, data, coldef) {
+function nukeAndCreateTable(table, data, coldef) {
 	table.DataTable(
 	{
 		scrollY: 560,
