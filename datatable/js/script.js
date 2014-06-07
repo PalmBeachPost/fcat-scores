@@ -1,21 +1,28 @@
 $(document).ready( function () {
 	var jsondata;
 	var coldef1= [
-		        { data: 'name'},
-		     	{ data: 's5', render: scoreRender },
-		        { data: 'm3', render: scoreRender },
-	        	{ data: 'm4', render: scoreRender },
-		        { data: 'm5', render: scoreRender },
-		        { data: 'r3', render: scoreRender },
-		        { data: 'r4', render: scoreRender },
-		        { data: 'r5', render: scoreRender },
-		        { data: 'w4', render: scoreRender }
-		    ];
+        { data: 'name'},
+        { data: 'm3', render: scoreRender },
+    	{ data: 'm4', render: scoreRender },
+        { data: 'm5', render: scoreRender },
+        { data: 'r3', render: scoreRender },
+        { data: 'r4', render: scoreRender },
+        { data: 'r5', render: scoreRender },
+        { data: 'w4', render: scoreRender }
+    ];
+
+    var coldef2= [
+        { data: 'name'},
+        { data: 'm3', render: scoreRender },
+    	{ data: 'm4', render: scoreRender },
+        { data: 'm5', render: scoreRender }
+    ];
 
 
 $.getJSON("./js/data/elementary.json", function(data) {
 jsondata = data;
 nukeAndCreateTable($('#elemTable'), data, coldef1);
+nukeAndCreateTable($('#midTable'), data, coldef2);
 });
 
 $('#brs').on( 'click', function() {
