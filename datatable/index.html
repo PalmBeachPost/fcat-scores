@@ -10,6 +10,7 @@
 	<script type="text/javascript" charset="utf8" src="/js/script.js"></script>
 </head>
 <body>
+	<button id="brs"></button>
 	<div style="width:80%">		
 		<table id="elemTable" class="display, order-column">
 			<thead>
@@ -28,23 +29,23 @@
 	<script type="text/javascript">		
 	$(document).ready( function () {
 		$.getJSON("./js/data/elementary.json", function(data) {
-			
+
     	$('#elemTable').DataTable(
     	{
     		scrollY: 560,
     		paging: true,
-    		data: data,
+    		data: data, //_.reject(data, function(row){ return row.m5 == null} ),
 		    columns: [
-		        { data: 'name' },
-		        { data: 's5' },
-		        { data: 'm3' },
-		        { data: 'm4' },
-		        { data: 'm5' },
-		        { data: 'r3' },
-		        { data: 'r4' },
-		        { data: 'r5' },
-		        { data: 'w4' }
-		       ]
+		        { data: 'name'},
+		     	{ data: 's5', render: scoreRender },
+		        { data: 'm3', render: scoreRender },
+	        	{ data: 'm4', render: scoreRender },
+		        { data: 'm5', render: scoreRender },
+		        { data: 'r3', render: scoreRender },
+		        { data: 'r4', render: scoreRender },
+		        { data: 'r5', render: scoreRender },
+		        { data: 'w4', render: scoreRender },
+		    ]
 		 });
     });
 	});
