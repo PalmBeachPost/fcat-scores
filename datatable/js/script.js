@@ -22,6 +22,12 @@ $(document).ready( function () {
 		        { data: 'r8', render: scoreRender },		        
 		        { data: 'w8', render: scoreRender }	        
 		    ];
+	var highColdef= [
+		        { data: 'name'},		        
+		        { data: 'r9', render: scoreRender },
+		        { data: 'r10', render: scoreRender },
+	        	{ data: 'w10', render: scoreRender }     
+		    ];
 
 $.getJSON("./js/data/elementary.json", function(data) {
 elemData = data;
@@ -33,13 +39,18 @@ middleData = data;
 nukeAndCreateTable($('#midTable'), data, middleColdef);
 });
 
-$('#brs').on( 'click', function() {
+$.getJSON("./js/data/high.json", function(data) {
+middleData = data;
+nukeAndCreateTable($('#highTable'), data, highColdef);
+});
+
+/*$('#brs').on( 'click', function() {
 	nukeAndCreateTable(
 		$('#elemTable'),
 		_.reject(elemData, function(row){ return row.m5 == null}),
 		 elemCol);
   });
-
+*/
 function scoreRender(data, type) {
 	if(type === 'display')
 	{
@@ -54,6 +65,7 @@ function nukeAndCreateTable(table, data, coldef) {
 	{
 		scrollY: 560,
 		paging: true,
+		lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
 		data: data, //_.reject(data, function(row){ return row.m5 == null} ),
 	    columns: coldef,
 	    destroy:true
