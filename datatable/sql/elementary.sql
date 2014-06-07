@@ -77,7 +77,7 @@ LEFT OUTER JOIN R3 on S.id = R3.sno
 LEFT OUTER JOIN R4 on S.id = R4.sno
 LEFT OUTER JOIN R5 on S.id = R5.sno
 LEFT OUTER JOIN W4 on S.id = W4.sno
-WHERE S.type = 1
+WHERE S.type IN (1,4,6)
 
 
 select * from elementary
