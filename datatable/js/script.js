@@ -54,8 +54,8 @@ nukeAndCreateTable($('#highTable'), data, highColdef);
 function scoreRender(data, type) {
 	if(type === 'display')
 	{
-	  if(data ==-1) { return 'N/A'; }
-	  if( data == null) { return  '-'}
+	  if(data == null) { return '-'; }
+	  if( data == -1) { return  '*'}
 	}
  	return data;
 }

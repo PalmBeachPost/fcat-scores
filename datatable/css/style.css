@@ -1,4 +1,27 @@
 body {
 	width:90%;
 	margin: auto;
+	font-family: Publico, Georgia, "Times New Roman", Times, serif;
+}
+
+h1 {
+	font-size: 200%;
+	font-weight: normal;
+	background-color: #006cb7;
+	padding-left: 1%;
+	color: whitesmoke;
+	display: inline-block;
+	padding-right: 10px;
+	margin: 10px 0 0 0;
+}
+
+h2{
+	background-color: #575757;
+	font-size: 150%;
+	clear: both;
+	color: whitesmoke;
+	float: left;
+	padding: 5px 10px;
+	margin: 10px 0;
+	font-weight: normal;
 }
