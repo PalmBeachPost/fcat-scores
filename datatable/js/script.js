@@ -1,6 +1,6 @@
 $(document).ready( function () {
-	var jsondata;
-	var coldef1= [
+	var elemData, middleData;
+	var elemCol= [
 		        { data: 'name'},
 		     	{ data: 's5', render: scoreRender },
 		        { data: 'm3', render: scoreRender },
@@ -11,24 +11,33 @@ $(document).ready( function () {
 		        { data: 'r5', render: scoreRender },
 		        { data: 'w4', render: scoreRender }
 		    ];
-	var coldef2= [
-		        { data: 'name'},
-		        { data: 'm3', render: scoreRender },
-	        	{ data: 'm4', render: scoreRender },
-		        { data: 'm5', render: scoreRender }		        
+	var middleColdef= [
+		        { data: 'name'},		        
+		        { data: 's8', render: scoreRender },
+		        { data: 'm6', render: scoreRender },
+	        	{ data: 'm7', render: scoreRender },
+		        { data: 'm8', render: scoreRender },		        
+		        { data: 'r6', render: scoreRender },		        
+		        { data: 'r7', render: scoreRender },		        
+		        { data: 'r8', render: scoreRender },		        
+		        { data: 'w8', render: scoreRender }	        
 		    ];
 
 $.getJSON("./js/data/elementary.json", function(data) {
-jsondata = data;
-nukeAndCreateTable($('#elemTable'), data, coldef1);
-nukeAndCreateTable($('#midTable'), data, coldef2);
+elemData = data;
+nukeAndCreateTable($('#elemTable'), data, elemCol);
+});
+
+$.getJSON("./js/data/middle.json", function(data) {
+middleData = data;
+nukeAndCreateTable($('#midTable'), data, middleColdef);
 });
 
 $('#brs').on( 'click', function() {
 	nukeAndCreateTable(
 		$('#elemTable'),
-		_.reject(jsondata, function(row){ return row.m5 == null}),
-		 coldef1);
+		_.reject(elemData, function(row){ return row.m5 == null}),
+		 elemCol);
   });
 
 function scoreRender(data, type) {
