@@ -63,9 +63,11 @@ function scoreRender(data, type) {
 function nukeAndCreateTable(table, data, coldef) {
 	table.DataTable(
 	{
-		scrollY: 560,
 		paging: true,
-		lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+		info: false,
+		dom: 'ftp',
+		pageLength:20,
+		lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]],
 		data: data, //_.reject(data, function(row){ return row.m5 == null} ),
 	    columns: coldef,
 	    destroy:true
