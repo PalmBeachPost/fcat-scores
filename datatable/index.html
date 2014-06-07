@@ -27,28 +27,7 @@
 		</table>
    </div>
 	<script type="text/javascript">		
-	$(document).ready( function () {
-		$.getJSON("./js/data/elementary.json", function(data) {
-
-    	$('#elemTable').DataTable(
-    	{
-    		scrollY: 560,
-    		paging: true,
-    		data: data, //_.reject(data, function(row){ return row.m5 == null} ),
-		    columns: [
-		        { data: 'name'},
-		     	{ data: 's5', render: scoreRender },
-		        { data: 'm3', render: scoreRender },
-	        	{ data: 'm4', render: scoreRender },
-		        { data: 'm5', render: scoreRender },
-		        { data: 'r3', render: scoreRender },
-		        { data: 'r4', render: scoreRender },
-		        { data: 'r5', render: scoreRender },
-		        { data: 'w4', render: scoreRender },
-		    ]
-		 });
-    });
-	});
+	
 	</script>
 </body>
 </html>
