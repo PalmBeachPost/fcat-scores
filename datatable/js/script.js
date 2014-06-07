@@ -1,24 +1,6 @@
 $(document).ready( function () {
 	var jsondata;
 	var coldef1= [
-<<<<<<< HEAD
-        { data: 'name'},
-        { data: 'm3', render: scoreRender },
-    	{ data: 'm4', render: scoreRender },
-        { data: 'm5', render: scoreRender },
-        { data: 'r3', render: scoreRender },
-        { data: 'r4', render: scoreRender },
-        { data: 'r5', render: scoreRender },
-        { data: 'w4', render: scoreRender }
-    ];
-
-    var coldef2= [
-        { data: 'name'},
-        { data: 'm3', render: scoreRender },
-    	{ data: 'm4', render: scoreRender },
-        { data: 'm5', render: scoreRender }
-    ];
-=======
 		        { data: 'name'},
 		     	{ data: 's5', render: scoreRender },
 		        { data: 'm3', render: scoreRender },
@@ -35,9 +17,6 @@ $(document).ready( function () {
 	        	{ data: 'm4', render: scoreRender },
 		        { data: 'm5', render: scoreRender }		        
 		    ];
-
->>>>>>> camelcase
-
 
 $.getJSON("./js/data/elementary.json", function(data) {
 jsondata = data;
