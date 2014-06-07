@@ -3,12 +3,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>FCAT Scores 2014</title>
-    <!-- DataTables CSS -->
-	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">	  
-	<!-- jQuery -->
-	<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>	  
-	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="/js/underscore-min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/js/script.js"></script>
 </head>
 <body>
 	<div style="width:80%">		
@@ -29,6 +28,7 @@
 	<script type="text/javascript">		
 	$(document).ready( function () {
 		$.getJSON("./js/data/elementary.json", function(data) {
+			
     	$('#elemTable').DataTable(
     	{
     		scrollY: 560,
