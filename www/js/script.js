@@ -44,6 +44,7 @@ $(document).ready( function () {
 		nukeAndCreateTable($('#highTable'), data, highColdef);
 	});
 
+	pymChild = new pym.Child();
 });
 
 function scoreRender(data, type) {
@@ -67,4 +68,5 @@ function nukeAndCreateTable(table, data, coldef) {
 	    columns: coldef,
 	    destroy:true
 	 });
+	pymChild.sendHeightToParent();
 }
