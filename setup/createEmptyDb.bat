@@ -1,0 +1,1 @@
+psql -U postgres -h localhost -p 5433 -w -c "drop database if exists schoolscores"
