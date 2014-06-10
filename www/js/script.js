@@ -45,6 +45,9 @@ $(document).ready( function () {
 	$.getJSON("./js/data/high.json", function(data) {
 		nukeAndCreateTable($('#highTable'), data, highColdef);
 		setAvgs($('#highTable'),highCols)
+
+	// this shouldnt be here ideally. putting it here to make sure it runs after the last table is rendered
+	$('.helptxt label').append('  or click on the column names to sort.');
 	});
 
 	pymChild = new pym.Child();
@@ -64,12 +67,15 @@ function nukeAndCreateTable(table, data, coldef) {
 	{
 		paging: true,
 		info: false,
-		dom: 'ftp',
+		dom: '<"helptxt"f>tp',
 		pageLength:20,
-		oLanguage: {  sSearch: "Type school name to search: "},
+		oLanguage: {  sSearch: "Type school name to search: "},		
 		data: data,
 	    columns: coldef,
-	    destroy:true
+	    destroy:true,
+	    aoColumnDefs: [
+     	 { "asSorting": [ "desc", "asc"], "aTargets": [ "_all"] }
+    ]
 	 });
 
 	pymChild.sendHeightToParent();
@@ -108,9 +114,55 @@ function setAvgs(table, coldef)
 {
 	for(index =0; index < coldef.length; index++)
 	{
-		data= coldef[index];
-		table.DataTable().column(index+1).nodes().to$().attr('avg',avgs[data]);
+		var currCell =table.DataTable().column(index+1).nodes().to$();
+		var subject= coldef[index];
+		var avg = avgs[subject];
+		table.DataTable().column(index+1).nodes().to$().attr('avg',avgs[subject]);		
+		//table.DataTable().column(index+1).nodes().to$().attr('avg',avgs[data]);		
 	}
+	colorOnScale(table.DataTable());
+}
+
+function colorOnScale(table){
+	
+	table.cells().eq(0).each( function ( cellIdx, i ) {
+    var cell = table.cell( cellIdx );
+ 	//var cells = table.DataTable().cells().nodes();
+	/*for (var cell in cells)
+	{*/
+
+		var val = cell.data();
+		/*if(cellIdx.column == 0)
+		{
+			return;
+		}*/
+		if(isNaN(val))
+		{
+			$(cell.node()).css('background-color', 'whitesmoke');
+			return;
+		}
+
+		var avg = $(cell.node()).attr('avg');
+		
+		var diff = val-avg;
+		if((val==null)||(val==-1))
+		{
+			return;
+		}
+		var r =255,g=255,b=0;
+
+		//scale red from 255 to 0 for vals from avg to 100
+		if(diff>0)
+		{
+			r = Math.floor(255-(255*diff)/(100-avg));
+		}
+		if(diff<0)
+		{
+			g = Math.floor(255 *(val/avg));
+		}
+		var color = 'rgba('+r+','+g+',0,.6)';
+		$(cell.node()).css('background-color', color);
+	});
 }
 
 var avgs ={"m3":58,
