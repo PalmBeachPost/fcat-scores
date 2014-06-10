@@ -54,17 +54,25 @@ table.datatable>th.color{
 	margin-bottom: 10px;
 }
 
-.explainer, .helptxt{
+.explainer, .helptxt, .avg{
 	color: #404040;
 	font-size: 75%;
 }
 .spacer {
 	min-height: 10px;
 }
-
 .pagefooter {
 	border-top: 1px solid #c0c0ff;
 }
 tbody td{
 	background-color: :rgba(151, 255, 0, 0.6);
+}
+
+.bottom{
+	margin-bottom: 0;
+	font-weight: lighter;
+}
+
+.avg {
+	font-style: italic;
 }
