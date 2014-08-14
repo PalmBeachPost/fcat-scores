@@ -16,8 +16,8 @@ if($prompt -eq 1)
 }
 
 # Fesh start
-#PSQL -U $u -h localhost -p $p -w -c "drop database if exists $db"
-#CREATEDB -U $u $db
+PSQL -U $u -h localhost -p $p -w -c "drop database if exists $db"
+CREATEDB -U $u $db
 
 # create tables
 PSQL -U $u -h localhost -p $p -w -d $db -f ./sql/createTables.sql
